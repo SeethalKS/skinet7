@@ -34,6 +34,7 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");// added a middleware for cla
 //app.UseHttpsRedirection();---seethal
 app.UseStaticFiles(); //for class 45 images in postman
 
+app.UseCors("CorsPolicy");//class 67 CORS header
 app.UseAuthorization();
 
 app.MapControllers();

@@ -41,6 +41,13 @@ services .Configure<ApiBehaviorOptions>(options=>{
     
 });//Added for class 53
 
+services.AddCors (opt=>
+{
+    opt.AddPolicy ("CorsPolicy",policy=>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+    });
+});
             return services;
         }
     }
