@@ -5,7 +5,8 @@ using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using System.Collections.Generic;  
+using StackExchange.Redis;
 namespace API.Extensions
 {
     public static class ApplicationServicesExtension
@@ -20,6 +21,8 @@ services.AddDbContext<StoreContext>(opt =>
 {
     opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
 });
+
+services.AddSingleton<IConnectionMultiplexer>();
 services.AddScoped<IProductRepository,ProductRepository>();
 services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 
