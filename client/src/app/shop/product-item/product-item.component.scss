@@ -19,12 +19,12 @@
     left :0;
     background: rgba(255,255,255,0.5);
     //opacity: 0;
-    transition: all 1s ease-in;
+    transition: all 0.5s;
 
     & button {
         
         z-index: 1000;
-        transition: all 1s ease-in;
+        transition: all 0.5s;
     }
     & button:first-of-type{
         transform: translateX(-20px);
