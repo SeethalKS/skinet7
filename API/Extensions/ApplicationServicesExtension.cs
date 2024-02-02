@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;  
 using StackExchange.Redis;
+using Infrastructure.Services;
 namespace API.Extensions
 {
     public static class ApplicationServicesExtension
@@ -29,9 +30,12 @@ services.AddSingleton<IConnectionMultiplexer>(c =>
 });
 services.AddScoped<IBasketRepository,BasketRepository>();
 services.AddScoped<IProductRepository,ProductRepository>();
+
+services.AddScoped<ITokenService,TokenService>();
 services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 
 services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 services .Configure<ApiBehaviorOptions>(options=>{
     options.InvalidModelStateResponseFactory=actionContext =>
