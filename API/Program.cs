@@ -17,6 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder .Services .AddApplicationServices(builder .Configuration);
 builder.Services.AddIdentityServices(builder .Configuration);
+builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 
@@ -32,11 +33,13 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");// added a middleware for cla
 
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    
 //}
 
 //app.UseHttpsRedirection();---seethal
+
+app.UseSwaggerDocumentation();
+
 app.UseStaticFiles(); //for class 45 images in postman
 
 app.UseCors("CorsPolicy");//class 67 CORS header
