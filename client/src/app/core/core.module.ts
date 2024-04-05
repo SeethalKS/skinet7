@@ -9,7 +9,7 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../shared/shared.module';
-// import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -20,15 +20,18 @@ import { SharedModule } from '../shared/shared.module';
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
   ],
   imports:[
     CommonModule,
     RouterModule,
     BreadcrumbModule,
     NgxSpinnerModule,
-    SharedModule
-    // ToastrModule
+    SharedModule,
+     ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
   ],
   exports:[
     NavBarComponent,
