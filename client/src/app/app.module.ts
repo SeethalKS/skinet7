@@ -12,11 +12,13 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 // import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import { ToastrModule } from 'ngx-toastr';
+import { OrderDetailedComponent } from './order-detailed/order-detailed.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+    //OrderDetailedComponent,
     // NavBarComponent
   ],
   imports: [
