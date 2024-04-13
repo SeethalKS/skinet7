@@ -21,5 +21,14 @@ namespace Core.Entities
         public List<BasketItem> Items { get; set; }= new List<BasketItem>();
 
         //public List<BasketItem> Items { get; set; } 
+
+        public int? DeliveryMethoId { get; set; }
+
+        public string ClientSecret { get; set; }
+
+        public string PaymentIntentId { get; set; }
+
+        public decimal ShippingPrice { get; set; }
+
     }
 }
