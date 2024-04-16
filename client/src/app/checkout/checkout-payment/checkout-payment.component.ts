@@ -96,8 +96,8 @@ get paymentFormComplete() {
 
   private async confirmPaymentWithStripe(basket: Basket | null) {
     if(!basket) throw new Error('Basket is null');
-    const result = this.toastr.success('Order created successfully');
-    this.stripe?.confirmCardPayment(basket.clientSecret!,{
+    //const result = this.toastr.success('Order created successfully');
+    const result =this.stripe?.confirmCardPayment(basket.clientSecret!,{
       payment_method:{
         card: this.cardNumber!,
         billing_details:{

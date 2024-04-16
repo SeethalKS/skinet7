@@ -12,8 +12,8 @@ namespace API.Extensions
 {
     public static class ApplicationServicesExtension
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services,IConfiguration config)
-        {
+public static IServiceCollection AddApplicationServices(this IServiceCollection services,IConfiguration config)
+{
 
 
 services.AddDbContext<StoreContext>(opt =>
@@ -26,6 +26,7 @@ services.AddSingleton<IConnectionMultiplexer>(c =>
     var options=ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
     return ConnectionMultiplexer.Connect(options);
 });
+services.AddSingleton<IResponseCacheService,ResponseCacheService>();
 services.AddScoped<IBasketRepository,BasketRepository>();
 services.AddScoped<IUnitOfWork,UnitOfWork>();
 services.AddScoped<IProductRepository,ProductRepository>();
