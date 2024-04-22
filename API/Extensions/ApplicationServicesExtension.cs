@@ -18,7 +18,7 @@ public static IServiceCollection AddApplicationServices(this IServiceCollection 
 
 services.AddDbContext<StoreContext>(opt =>
 {
-    opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+    opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
 });
 
 services.AddSingleton<IConnectionMultiplexer>(c =>
